@@ -11,7 +11,7 @@ class ViewController: UIViewController {
   @IBOutlet var titleLabel: UILabel!
     
     @IBOutlet weak var menuHeightConstraint: NSLayoutConstraint!
-  
+    @IBOutlet weak var buttonMenuRightConstraint: NSLayoutConstraint!
   //MARK:- further class variables
   
   var slider: HorizontalItemList!
@@ -27,11 +27,17 @@ class ViewController: UIViewController {
     titleLabel.text = menuIsOpen ? "Select Item to bring!" : "Packing List"
     self.view.layoutIfNeeded()
     menuHeightConstraint.constant = menuIsOpen ? 200.0 : 60.0
+    buttonMenuRightConstraint.constant = menuIsOpen ? 30.0 : 8.0
     
     UIView.animate(withDuration: 0.33,
                    delay: 0,
                    options: .curveEaseIn,
                    animations: {
+                    let angle: CGFloat =
+                        self.menuIsOpen
+                    ? .pi / 4
+                            : 0.0
+                    self.buttonMenu.transform = CGAffineTransform(rotationAngle: angle)
                     self.view.layoutIfNeeded()
     },
                    completion: nil)

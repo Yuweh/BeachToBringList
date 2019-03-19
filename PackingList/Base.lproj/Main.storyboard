@@ -80,6 +80,7 @@
                     </view>
                     <connections>
                         <outlet property="buttonMenu" destination="IOq-Pr-fqH" id="PyL-gE-X0e"/>
+                        <outlet property="buttonMenuRightConstraint" destination="yNV-0i-Atf" id="8Um-Po-1y6"/>
                         <outlet property="menuHeightConstraint" destination="vCC-PK-uyy" id="RTU-gy-6DS"/>
                         <outlet property="tableView" destination="tdH-ZN-xEy" id="JzZ-jq-73Q"/>
                         <outlet property="titleLabel" destination="OVl-Vy-Hss" id="KYJ-17-5qZ"/>
