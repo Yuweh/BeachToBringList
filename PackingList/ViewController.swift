@@ -46,6 +46,26 @@ class ViewController: UIViewController {
   func showItem(_ index: Int) {
     let imageView = makeImageView(index: index)
     view.addSubview(imageView)
+    
+    //TODO: Create constraints and set alignment
+    
+    // this set the imageView to horizontal center of View
+    let conX = imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+    let conBottom = imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: imageView.frame.height)
+    let conWidth = imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.33, constant: -50.0)
+    let conHeight = imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
+    
+    NSLayoutConstraint.activate([conX, conBottom, conWidth, conHeight])
+    self.view.layoutIfNeeded()
+    
+    //TODOL=: Animate in
+    UIView.animate(withDuration: 0.8,
+                   delay: 0.0,
+                   animations: {
+                    conBottom.constant = imageView.frame.size.height / 2
+                    conWidth.constant = 0.0
+                    self.view.layoutIfNeeded()
+    }, completion: nil)
   }
 
   func transitionCloseMenu() {
