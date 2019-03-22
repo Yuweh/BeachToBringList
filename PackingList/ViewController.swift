@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     NSLayoutConstraint.activate([conX, conBottom, conWidth, conHeight])
     self.view.layoutIfNeeded()
     
-    //TODOL=: Animate in
+    //TODO: Animate In
     UIView.animate(withDuration: 0.8,
                    delay: 0.0,
                    animations: {
@@ -66,6 +66,17 @@ class ViewController: UIViewController {
                     conWidth.constant = 0.0
                     self.view.layoutIfNeeded()
     }, completion: nil)
+    
+    //TODO: Animate Out
+    UIView.animate(withDuration: 0.67,
+                   delay: 2.0,
+                   animations: {
+                    conBottom.constant = imageView.frame.size.height
+                    conWidth.constant = -50.0
+                    self.view.layoutIfNeeded()
+    }, completion: {_ in
+        imageView.removeFromSuperview()
+    })
   }
 
   func transitionCloseMenu() {
