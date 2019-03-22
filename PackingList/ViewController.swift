@@ -62,7 +62,7 @@ class ViewController: UIViewController {
     UIView.animate(withDuration: 0.8,
                    delay: 0.0,
                    animations: {
-                    conBottom.constant = imageView.frame.size.height / 2
+                    conBottom.constant = -imageView.frame.size.height / 2
                     conWidth.constant = 0.0
                     self.view.layoutIfNeeded()
     }, completion: nil)
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     UIView.animate(withDuration: 0.67,
                    delay: 2.0,
                    animations: {
-                    conBottom.constant = imageView.frame.size.height
+                    conBottom.constant = -imageView.frame.size.height
                     conWidth.constant = -50.0
                     self.view.layoutIfNeeded()
     }, completion: {_ in
