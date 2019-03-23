@@ -106,16 +106,29 @@ class ViewController: UIViewController {
                         self.view.layoutIfNeeded()
         }, completion: nil)
         
-        //TODO: Animate Out
-        UIView.animate(withDuration: 0.67,
-                       delay: 2.0,
-                       animations: {
-                        conBottom.constant = -imageView.frame.size.height
-                        conWidth.constant = -50.0
-                        self.view.layoutIfNeeded()
-        }, completion: {_ in
-            imageView.removeFromSuperview()
-        })
+        //TODO: Animate Out v1
+//        UIView.animate(withDuration: 0.67,
+//                       delay: 2.0,
+//                       animations: {
+//                        conBottom.constant = -imageView.frame.size.height
+//                        conWidth.constant = -50.0
+//                        self.view.layoutIfNeeded()
+//        }, completion: {_ in
+//            imageView.removeFromSuperview()
+//        })
+        
+        //TODO: Animate Out v2
+        delay(seconds: 1.0) {
+            UIView.transition(with: imageView,
+                              duration: 1.0,
+                              options: .transitionFlipFromBottom,
+                              animations: {
+                                //imageView.isHidden = true ->not working well with animations
+            },
+                              completion: {_ in
+                                imageView.removeFromSuperview()
+            })
+        }
     }
     
     func transitionCloseMenu() {
