@@ -26,6 +26,32 @@ class ViewController: UIViewController {
     //TODO: Build your first constraint animation!
     titleLabel.text = menuIsOpen ? "Select Item to bring!" : "Packing List"
     self.view.layoutIfNeeded()
+    
+    //TODO: Search for a constraint and animate its multiplier
+    
+    titleLabel.superview?.constraints.forEach { constraint in
+        print("-> \(constraint.description)\n") //constraint checker
+        if constraint.firstItem === titleLabel &&
+            constraint.firstAttribute == .centerX {
+            constraint.constant = menuIsOpen ? -90 : 0.0
+            return
+        }
+        
+        if constraint.identifier == "TitleCenterY" {
+            constraint.isActive = false
+
+            let newConstraint = NSLayoutConstraint(item: titleLabel,
+                                                   attribute: .centerY,
+                                                   relatedBy: .equal,
+                                                   toItem: titleLabel.superview!,
+                                                   attribute: .centerY,
+                                                   multiplier: menuIsOpen ? 0.57 : 1.0,
+                                                   constant: 5.0)
+            newConstraint.identifier = "TitleCenterY"
+            newConstraint.isActive = true
+        }
+    }
+    
     menuHeightConstraint.constant = menuIsOpen ? 200.0 : 60.0
     buttonMenuRightConstraint.constant = menuIsOpen ? 30.0 : 8.0
     
