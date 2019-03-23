@@ -134,6 +134,20 @@ class ViewController: UIViewController {
     func transitionCloseMenu() {
         delay(seconds: 0.35, completion: {
             self.toggleMenu(self)
+            
+            //TODO: Add a view transition to the slider
+            
+            let titleBar = self.slider.superview!
+            UIView.transition(with: titleBar,
+                              duration: 0.75,
+                              options: [.curveEaseOut,
+                                        .transitionFlipFromBottom],
+                              animations: {
+                                self.slider.removeFromSuperview()
+            },
+                              completion: {_ in
+                                titleBar.addSubview(self.slider)
+            })
         })
     }
 }
