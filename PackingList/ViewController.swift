@@ -63,9 +63,12 @@ class ViewController: UIViewController {
         menuHeightConstraint.constant = menuIsOpen ? 200.0 : 60.0
         buttonMenuRightConstraint.constant = menuIsOpen ? 30.0 : 8.0
         
-        UIView.animate(withDuration: 0.33,
+        //TODO: Add Spring Animation: usingSpringWithDamping and initialSpringVelocity
+        UIView.animate(withDuration: 1.0,
                        delay: 0,
-                       options: .curveEaseIn,
+                       usingSpringWithDamping: 0.6,
+                       initialSpringVelocity: 10.0,
+                       options: [],
                        animations: {
                         let angle: CGFloat =
                             self.menuIsOpen
@@ -93,8 +96,10 @@ class ViewController: UIViewController {
         self.view.layoutIfNeeded()
         
         //TODO: Animate In
-        UIView.animate(withDuration: 0.8,
+        UIView.animate(withDuration: 1.0,
                        delay: 0.0,
+                       usingSpringWithDamping: 0.6,
+                       initialSpringVelocity: 10.0,
                        animations: {
                         conBottom.constant = -imageView.frame.size.height / 2
                         conWidth.constant = 0.0
