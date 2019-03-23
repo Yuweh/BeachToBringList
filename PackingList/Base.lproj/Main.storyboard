@@ -44,9 +44,15 @@
                                     <constraint firstItem="OVl-Vy-Hss" firstAttribute="centerY" secondItem="7Lr-a6-pgK" secondAttribute="centerY" constant="5" identifier="TitleCenterY" id="ML0-7M-cQe"/>
                                     <constraint firstItem="IOq-Pr-fqH" firstAttribute="centerY" secondItem="OVl-Vy-Hss" secondAttribute="centerY" id="NcL-NH-gxp"/>
                                     <constraint firstItem="OVl-Vy-Hss" firstAttribute="centerX" secondItem="7Lr-a6-pgK" secondAttribute="centerX" id="PlC-5c-Tdx"/>
+                                    <constraint firstItem="OVl-Vy-Hss" firstAttribute="centerY" secondItem="7Lr-a6-pgK" secondAttribute="centerY" multiplier="0.57" priority="995" constant="5" identifier="TitleCenterY_Open" id="Z3W-S1-dHZ"/>
                                     <constraint firstAttribute="height" constant="60" id="vCC-PK-uyy"/>
                                     <constraint firstAttribute="trailing" secondItem="IOq-Pr-fqH" secondAttribute="trailing" constant="8" id="yNV-0i-Atf"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Z3W-S1-dHZ"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tdH-ZN-xEy">
                                 <rect key="frame" x="0.0" y="60" width="375" height="607"/>
@@ -83,6 +89,8 @@
                         <outlet property="buttonMenuRightConstraint" destination="yNV-0i-Atf" id="8Um-Po-1y6"/>
                         <outlet property="menuHeightConstraint" destination="vCC-PK-uyy" id="RTU-gy-6DS"/>
                         <outlet property="tableView" destination="tdH-ZN-xEy" id="JzZ-jq-73Q"/>
+                        <outlet property="titleCenterY" destination="ML0-7M-cQe" id="8Kg-JP-BbY"/>
+                        <outlet property="titleCenterY_Open" destination="Z3W-S1-dHZ" id="S56-My-PT5"/>
                         <outlet property="titleLabel" destination="OVl-Vy-Hss" id="KYJ-17-5qZ"/>
                     </connections>
                 </viewController>
